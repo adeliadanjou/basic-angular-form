@@ -1,0 +1,19 @@
+<p>MY FIRST ANGULAR FORM!</p>
+
+<form (ngSubmit)="formSubmit(myForm)" #myForm="ngForm">
+
+<label for="username">Username</label>
+<input [(ngModel)]="username" type="text" name="username" #myUsername="ngModel" minlength="6">
+
+<label for="password">Password</label>
+<input [(ngModel)]="password" type="text" name="password"  #myPassword="ngModel" required>
+
+<div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)">
+        <p class="error" [hidden]="!myPassword.errors.required">
+                Password is required
+              </p>
+</div>
+
+<button type="submit">Sign Up</button>
+
+</form>
